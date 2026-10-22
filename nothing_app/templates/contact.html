@@ -1,0 +1,236 @@
+
+{% extends 'base.html' %}
+
+{% block title %}კონტაქტი{% endblock %}
+
+{% block content %}
+
+<section class="inner-page-section">
+
+    <div class="container">
+
+        <div class="page-heading reveal">
+
+            <div class="eyebrow">
+                <span class="pulse-dot"></span>
+                LET'S CONNECT
+            </div>
+
+            <h1>
+                გაქვს შეკითხვა?
+                <span class="gradient-text">მოგვწერე.</span>
+            </h1>
+
+            <p>
+                გამოიყენე საკონტაქტო ფორმის დემონსტრაციული
+                ინტერფეისი.
+            </p>
+
+        </div>
+
+        <div class="contact-grid">
+
+            <!-- INFORMATION -->
+            <div class="contact-info-panel reveal">
+
+                <div class="contact-glow"></div>
+
+                <div class="contact-panel-content">
+
+                    <span class="contact-overline">CONTACT MINI BANK</span>
+
+                    <h2>
+                        კარგი კომუნიკაცია
+                        <br>
+                        აქ იწყება.
+                    </h2>
+
+                    <p>
+                        ჩვენ გვჯერა, რომ თანამედროვე საბანკო
+                        გამოცდილება მარტივი და ადამიანზე
+                        ორიენტირებული უნდა იყოს.
+                    </p>
+
+                    <div class="contact-info-items">
+
+                        <div class="contact-info-item">
+                            <div class="contact-item-icon">✉</div>
+                            <div>
+                                <small>ელ. ფოსტა</small>
+                                <strong>support@minibank.demo</strong>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-item-icon">◎</div>
+                            <div>
+                                <small>ლოკაცია</small>
+                                <strong>თბილისი, საქართველო</strong>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <div class="contact-item-icon">✦</div>
+                            <div>
+                                <small>პროექტი</small>
+                                <strong>Educational UI Demo</strong>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="contact-panel-bottom">
+                        MINI BANK — DIGITAL EXPERIENCE
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+            <div class="surface-card contact-form-panel reveal">
+
+                <span class="small-overline">SEND A MESSAGE</span>
+
+                <h2>გამოგვიგზავნე შეტყობინება</h2>
+
+                <p>
+                    შეავსე ფორმა ქვემოთ.
+                </p>
+
+                <form class="premium-form">
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="contactName">სახელი</label>
+                            <input
+                                type="text"
+                                id="contactName"
+                                placeholder="თქვენი სახელი">
+                        </div>
+
+                        <div class="field">
+                            <label for="contactLastName">გვარი</label>
+                            <input
+                                type="text"
+                                id="contactLastName"
+                                placeholder="თქვენი გვარი">
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+                        <label for="contactEmail">ელ. ფოსტა</label>
+                        <input
+                            type="email"
+                            id="contactEmail"
+                            placeholder="name@example.com">
+                    </div>
+
+                    <div class="field">
+                        <label for="contactSubject">თემა</label>
+                        <select id="contactSubject">
+                            <option>ზოგადი შეკითხვა</option>
+                            <option>სესხის შესახებ</option>
+                            <option>ტექნიკური შეკითხვა</option>
+                            <option>სხვა</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="contactMessage">შეტყობინება</label>
+                        <textarea
+                            id="contactMessage"
+                            rows="6"
+                            placeholder="დაწერე შენი შეტყობინება..."></textarea>
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-lg btn-full"
+                        data-open-modal
+                        data-modal-title="შეტყობინების დემო"
+                        data-modal-message="ეს არის საკონტაქტო ფორმის ვიზუალური დემონსტრაცია. შეტყობინება რეალურად არ იგზავნება.">
+                        შეტყობინების გაგზავნა
+                        <span>↗</span>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ -->
+        <div class="faq-section">
+
+            <div class="center-heading reveal">
+                <span class="section-kicker">FREQUENTLY ASKED QUESTIONS</span>
+                <h2>ხშირად დასმული კითხვები</h2>
+                <p>მარტივი პასუხები მთავარ კითხვებზე.</p>
+            </div>
+
+            <div class="faq-list reveal">
+
+                <details class="faq-item">
+                    <summary>
+                        როგორ შემიძლია სესხის განაცხადის შევსება?
+                        <span class="faq-plus">+</span>
+                    </summary>
+
+                    <p>
+                        გადადი სესხების გვერდზე და შეავსე ფორმა.
+                        ამ ეტაპზე განაცხადი მხოლოდ ვიზუალური
+                        დემონსტრაციაა.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        შემიძლია Dark Mode-ის ჩართვა?
+                        <span class="faq-plus">+</span>
+                    </summary>
+
+                    <p>
+                        დიახ. ზედა მარჯვენა კუთხეში არსებული
+                        ღილაკით შეგიძლია შეცვალო დიზაინის თემა.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        რეალურად მუშავდება ჩემი მონაცემები?
+                        <span class="faq-plus">+</span>
+                    </summary>
+
+                    <p>
+                        არა. პროექტი ამ ეტაპზე მხოლოდ Frontend
+                        დიზაინის დემონსტრაციაა. Backend მომავალში
+                        Django-ს საშუალებით დაემატება.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>
+                        შესაძლებელია საიტის მობილურზე გამოყენება?
+                        <span class="faq-plus">+</span>
+                    </summary>
+
+                    <p>
+                        დიახ. ინტერფეისი ადაპტირებულია
+                        მობილურ და პლანშეტურ ეკრანებზე.
+                    </p>
+                </details>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

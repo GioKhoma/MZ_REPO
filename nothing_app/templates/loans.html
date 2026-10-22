@@ -1,0 +1,288 @@
+
+{% extends 'base.html' %}
+
+{% block title %}სესხები{% endblock %}
+
+{% block content %}
+
+<section class="inner-page-section">
+
+    <div class="container">
+
+        <div class="page-heading reveal">
+
+            <div class="eyebrow">
+                <span class="pulse-dot"></span>
+                FINANCIAL FREEDOM
+            </div>
+
+            <h1>
+                შენი გეგმები.
+                <span class="gradient-text">ჩვენი შესაძლებლობები.</span>
+            </h1>
+
+            <p>
+                აირჩიე სასურველი სესხი და გაეცანი
+                განაცხადის შევსების თანამედროვე გამოცდილებას.
+            </p>
+
+        </div>
+
+        <div class="loan-layout">
+
+            <!-- LEFT: APPLICATION -->
+            <div class="surface-card application-card reveal">
+
+                <div class="card-heading">
+                    <div>
+                        <span class="small-overline">LOAN APPLICATION</span>
+                        <h2>სესხის განაცხადი</h2>
+                        <p>შეავსე ქვემოთ მოცემული ველები</p>
+                    </div>
+
+                    <span class="heading-symbol">✦</span>
+                </div>
+
+                <form class="premium-form">
+
+                    <div class="form-section-title">
+                        <span>01</span>
+                        აირჩიე სესხის ტიპი
+                    </div>
+
+                    <div class="loan-choice-grid">
+
+                        <label class="loan-choice">
+                            <input type="radio" name="loan_type" value="consumer" checked>
+
+                            <span class="choice-face">
+                                <span class="choice-icon">◈</span>
+                                <strong>სამომხმარებლო</strong>
+                                <small>პირადი მიზნებისთვის</small>
+                                <span class="choice-check">✓</span>
+                            </span>
+                        </label>
+
+                        <label class="loan-choice">
+                            <input type="radio" name="loan_type" value="mortgage">
+
+                            <span class="choice-face">
+                                <span class="choice-icon">⌂</span>
+                                <strong>იპოთეკური</strong>
+                                <small>უძრავი ქონებისთვის</small>
+                                <span class="choice-check">✓</span>
+                            </span>
+                        </label>
+
+                        <label class="loan-choice">
+                            <input type="radio" name="loan_type" value="auto">
+
+                            <span class="choice-face">
+                                <span class="choice-icon">↗</span>
+                                <strong>ავტოსესხი</strong>
+                                <small>ავტომობილისთვის</small>
+                                <span class="choice-check">✓</span>
+                            </span>
+                        </label>
+
+                    </div>
+
+                    <div class="form-section-title">
+                        <span>02</span>
+                        სესხის დეტალები
+                    </div>
+
+                    <div class="range-heading">
+                        <label for="loanRange">სასურველი თანხა</label>
+                        <output id="rangeValue" for="loanRange">12 000 ₾</output>
+                    </div>
+
+                    <input
+                        type="range"
+                        id="loanRange"
+                        class="range-slider"
+                        min="1000"
+                        max="50000"
+                        value="12000"
+                        step="500">
+
+                    <div class="range-limits">
+                        <span>1 000 ₾</span>
+                        <span>50 000 ₾</span>
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="loanPeriod">სესხის ვადა</label>
+                            <select id="loanPeriod">
+                                <option>6 თვე</option>
+                                <option>12 თვე</option>
+                                <option selected>24 თვე</option>
+                                <option>36 თვე</option>
+                                <option>48 თვე</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="loanPurpose">სესხის მიზანი</label>
+                            <select id="loanPurpose">
+                                <option>პირადი საჭიროება</option>
+                                <option>განათლება</option>
+                                <option>რემონტი</option>
+                                <option>ავტომობილი</option>
+                                <option>სხვა</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-section-title">
+                        <span>03</span>
+                        პირადი ინფორმაცია
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="fullName">სახელი და გვარი</label>
+                            <input
+                                id="fullName"
+                                type="text"
+                                placeholder="მაგ: გიორგი გიორგაძე">
+                        </div>
+
+                        <div class="field">
+                            <label for="personalId">პირადი ნომერი</label>
+                            <input
+                                id="personalId"
+                                type="text"
+                                placeholder="11-ნიშნა ნომერი">
+                        </div>
+
+                        <div class="field">
+                            <label for="userEmail">ელ. ფოსტა</label>
+                            <input
+                                id="userEmail"
+                                type="email"
+                                placeholder="name@example.com">
+                        </div>
+
+                        <div class="field">
+                            <label for="monthlyIncome">თვიური შემოსავალი</label>
+                            <input
+                                id="monthlyIncome"
+                                type="number"
+                                placeholder="მაგ: 2500">
+                        </div>
+
+                    </div>
+
+                    <label class="custom-checkbox">
+                        <input type="checkbox">
+                        <span>
+                            გავეცანი დემონსტრაციული განაცხადის პირობებს.
+                        </span>
+                    </label>
+
+                    <button
+                        type="button"
+                        class="btn btn-primary btn-lg btn-full"
+                        data-open-modal
+                        data-modal-title="განაცხადის დემონსტრაცია"
+                        data-modal-message="ეს არის განაცხადის ვიზუალური შაბლონი. მონაცემები არ იგზავნება და არ ინახება.">
+                        შემდეგი ნაბიჯი
+                        <span>→</span>
+                    </button>
+
+                    <p class="form-disclaimer">
+                        ეს გვერდი მხოლოდ UI დემონსტრაციისთვისაა.
+                        მონაცემები არსად იგზავნება.
+                    </p>
+
+                </form>
+
+            </div>
+
+
+            <!-- RIGHT: VISUAL PREVIEW -->
+            <div class="loan-sidebar">
+
+                <div class="loan-preview reveal">
+
+                    <div class="preview-glow"></div>
+
+                    <div class="preview-top">
+                        <span>YOUR LOAN PREVIEW</span>
+                        <span class="preview-dots">•••</span>
+                    </div>
+
+                    <p>არჩეული თანხა</p>
+
+                    <h2 id="loanPreviewAmount">12 000 ₾</h2>
+
+                    <div class="preview-chart">
+                        <span style="--height: 26%"></span>
+                        <span style="--height: 40%"></span>
+                        <span style="--height: 35%"></span>
+                        <span style="--height: 56%"></span>
+                        <span style="--height: 48%"></span>
+                        <span style="--height: 70%"></span>
+                        <span style="--height: 60%"></span>
+                        <span style="--height: 82%"></span>
+                        <span style="--height: 73%"></span>
+                        <span style="--height: 95%"></span>
+                    </div>
+
+                    <div class="preview-divider"></div>
+
+                    <div class="preview-detail">
+                        <span>პროდუქტი</span>
+                        <strong>MiniBank Loans</strong>
+                    </div>
+
+                    <div class="preview-detail">
+                        <span>ვალუტა</span>
+                        <strong>GEL (₾)</strong>
+                    </div>
+
+                    <div class="preview-detail">
+                        <span>ინტერფეისი</span>
+                        <strong>Demo Mode</strong>
+                    </div>
+
+                </div>
+
+                <div class="info-panel reveal">
+
+                    <span class="info-icon">✧</span>
+
+                    <h3>ყველაფერი შენს კონტროლქვეშ</h3>
+
+                    <p>
+                        შეარჩიე სესხის ტიპი, თანხა და ვადა.
+                        მოგვიანებით ამ სივრცეში Django-ს
+                        რეალურ მონაცემებს დაუკავშირებ.
+                    </p>
+
+                    <div class="info-line">
+                        <span>უსაფრთხო დიზაინი</span>
+                        <span>✓</span>
+                    </div>
+
+                    <div class="info-line">
+                        <span>ადაპტური ინტერფეისი</span>
+                        <span>✓</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

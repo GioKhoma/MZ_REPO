@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-def home(request):
-    return HttpResponse("home page")
+# def home(request):
+#     return HttpResponse("home page")
 
 def index(request):
 
@@ -15,4 +15,32 @@ def index(request):
         "products": products,
     }
 
-    return render(request, "nothing_app/index.html", context)
+    return render(request, "index.html", context)
+
+
+def home(request):
+
+    context = {}
+
+    return render(request, "home.html", context)
+
+
+def loans(request):
+
+    context = {}
+
+    return render(request, "loans.html", context)
+
+
+def my_loans(request):
+
+    context = {}
+
+    return render(request, "my_loans.html", context)
+
+
+def contact(request):
+
+    context = {}
+
+    return render(request, "contact.html", context)

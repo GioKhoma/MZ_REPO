@@ -1,0 +1,349 @@
+
+{% extends 'base.html' %}
+
+{% block title %}მთავარი{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero-section">
+
+    <div class="container hero-grid">
+
+        <div class="hero-copy reveal">
+
+            <div class="eyebrow">
+                <span class="pulse-dot"></span>
+                DIGITAL BANKING REIMAGINED
+            </div>
+
+            <h1 class="hero-title">
+                შენი ფული.
+                <br>
+                შენი წესები.
+                <br>
+                <span class="gradient-text">შენი მომავალი.</span>
+            </h1>
+
+            <p class="hero-description">
+                ფინანსური შესაძლებლობები ერთ სივრცეში.
+                აღმოაჩინე თანამედროვე საბანკო გამოცდილება,
+                რომელიც შენზეა მორგებული.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="{% url 'loans' %}" class="btn btn-primary btn-lg">
+                    აღმოაჩინე სესხები
+                    <span class="btn-arrow">↗</span>
+                </a>
+
+                
+                <button type="button" class="btn btn-outline btn-lg" id="openGuideBtn">
+                    <span class="play-icon">▶</span>
+                    გაიგე მეტი
+                </button>
+
+
+            </div>
+
+            <div class="hero-highlights">
+                <div>
+                    <strong>100%</strong>
+                    <span>ციფრული დიზაინი</span>
+                </div>
+
+                <div class="highlight-divider"></div>
+
+                <div>
+                    <strong>24/7</strong>
+                    <span>UI გამოცდილება</span>
+                </div>
+
+                <div class="highlight-divider"></div>
+
+                <div>
+                    <strong>Next Gen</strong>
+                    <span>Banking Concept</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Animated banking dashboard -->
+        <div class="hero-visual reveal">
+
+            <div class="visual-orbit orbit-one"></div>
+            <div class="visual-orbit orbit-two"></div>
+
+            <div class="dashboard-mock spotlight-card" data-tilt>
+
+                <div class="mock-header">
+                    <div class="mock-brand">
+                        <span class="mock-brand-icon">✦</span>
+                        Overview
+                    </div>
+                    <span class="mock-menu">•••</span>
+                </div>
+
+                <div class="mock-label">
+                    ხელმისაწვდომი ბალანსი
+                </div>
+
+                <div class="mock-balance">
+                    ₾ 24,850<span>.00</span>
+                </div>
+
+                <div class="mock-growth">
+                    ↗ +8.2%
+                    <span>სადემონსტრაციო მონაცემი</span>
+                </div>
+
+                <div class="mock-chart">
+
+                    <div class="chart-bars">
+                        <span style="--height: 34%"></span>
+                        <span style="--height: 48%"></span>
+                        <span style="--height: 39%"></span>
+                        <span style="--height: 63%"></span>
+                        <span style="--height: 53%"></span>
+                        <span style="--height: 72%"></span>
+                        <span style="--height: 61%"></span>
+                        <span style="--height: 83%"></span>
+                        <span style="--height: 76%"></span>
+                        <span style="--height: 96%"></span>
+                    </div>
+
+                    <div class="chart-labels">
+                        <span>იან</span>
+                        <span>მარ</span>
+                        <span>მაი</span>
+                        <span>ივლ</span>
+                        <span>სექ</span>
+                    </div>
+
+                </div>
+
+                <div class="mock-transactions">
+
+                    <div class="mock-transaction">
+                        <div class="transaction-icon">↙</div>
+                        <div>
+                            <strong>შემოსავალი</strong>
+                            <small>დღეს, 12:45</small>
+                        </div>
+                        <b class="text-success">+₾ 1,250</b>
+                    </div>
+
+                    <div class="mock-transaction">
+                        <div class="transaction-icon purple">↗</div>
+                        <div>
+                            <strong>გადახდა</strong>
+                            <small>გუშინ, 18:20</small>
+                        </div>
+                        <b>-₾ 180</b>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="floating-bank-card">
+                <div class="bank-card-top">
+                    <span>mini<span>bank.</span></span>
+                    <span>✦</span>
+                </div>
+
+                <div class="card-chip"></div>
+
+                <div class="bank-card-number">
+                    •••• &nbsp; •••• &nbsp; •••• &nbsp; 2048
+                </div>
+
+                <div class="bank-card-bottom">
+                    <span>CARD HOLDER<br><b>YOUR NAME</b></span>
+                    <span>VIRTUAL</span>
+                </div>
+            </div>
+
+            <div class="floating-notification">
+                <span class="notification-icon">✓</span>
+                <span>
+                    <strong>Smart Banking</strong>
+                    <small>მარტივი. სწრაფი. თანამედროვე.</small>
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section class="section services-section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+            <div>
+                <span class="section-kicker">ჩვენი სერვისები</span>
+
+                <h2>
+                    მეტი შესაძლებლობა.
+                    <br>
+                    <span class="gradient-text">ნაკლები სირთულე.</span>
+                </h2>
+            </div>
+
+            <p>
+                ყველაფერი, რაც თანამედროვე საბანკო
+                გამოცდილებისთვის გჭირდება.
+            </p>
+        </div>
+
+        <div class="services-grid">
+
+            <a href="{% url 'loans' %}" class="service-card spotlight-card reveal" data-tilt>
+
+                <div class="service-icon icon-purple">◈</div>
+
+                <div class="service-number">01 / FINANCE</div>
+
+                <h3>სამომხმარებლო სესხი</h3>
+
+                <p>
+                    ფინანსური მხარდაჭერა შენი გეგმებისა
+                    და ახალი შესაძლებლობებისთვის.
+                </p>
+
+                <div class="service-bottom">
+                    <span>გაიგე მეტი</span>
+                    <span class="circle-arrow">↗</span>
+                </div>
+
+            </a>
+
+            <a href="{% url 'loans' %}" class="service-card spotlight-card reveal" data-tilt>
+
+                <div class="service-icon icon-blue">⌂</div>
+
+                <div class="service-number">02 / PROPERTY</div>
+
+                <h3>იპოთეკური სესხი</h3>
+
+                <p>
+                    გადადგი შემდეგი ნაბიჯი
+                    შენი საკუთარი სივრცისკენ.
+                </p>
+
+                <div class="service-bottom">
+                    <span>გაიგე მეტი</span>
+                    <span class="circle-arrow">↗</span>
+                </div>
+
+            </a>
+
+            <a href="{% url 'my_loans' %}" class="service-card spotlight-card reveal" data-tilt>
+
+                <div class="service-icon icon-orange">↗</div>
+
+                <div class="service-number">03 / OVERVIEW</div>
+
+                <h3>ფინანსების მიმოხილვა</h3>
+
+                <p>
+                    აკონტროლე შენი ფინანსური პროდუქტები
+                    ერთ კომფორტულ სივრცეში.
+                </p>
+
+                <div class="service-bottom">
+                    <span>გაიგე მეტი</span>
+                    <span class="circle-arrow">↗</span>
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- STEPS -->
+<section class="section steps-section">
+
+    <div class="container">
+
+        <div class="center-heading reveal">
+            <span class="section-kicker">HOW IT WORKS</span>
+            <h2>სამი მარტივი ნაბიჯი</h2>
+            <p>აღმოაჩინე, რამდენად მარტივი შეიძლება იყოს პროცესი.</p>
+        </div>
+
+        <div class="steps-grid">
+
+            <div class="step-card reveal">
+                <span class="step-number">01</span>
+                <div class="step-icon">◇</div>
+                <h3>აირჩიე პროდუქტი</h3>
+                <p>გაეცანი სასურველ საბანკო პროდუქტს.</p>
+            </div>
+
+            <div class="step-card reveal">
+                <span class="step-number">02</span>
+                <div class="step-icon">✎</div>
+                <h3>შეავსე განაცხადი</h3>
+                <p>მიუთითე აუცილებელი ინფორმაცია ფორმაში.</p>
+            </div>
+
+            <div class="step-card reveal">
+                <span class="step-number">03</span>
+                <div class="step-icon">✓</div>
+                <h3>გადადი შემდეგ ეტაპზე</h3>
+                <p>დიზაინის დემოში გაეცანი შემდეგ ნაბიჯს.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- CTA -->
+<section class="section cta-section">
+
+    <div class="container">
+
+        <div class="cta-panel reveal">
+
+            <div class="cta-glow"></div>
+
+            <div class="cta-content">
+                <span class="cta-label">THE FUTURE IS YOURS</span>
+
+                <h2>
+                    შენი შემდეგი დიდი ნაბიჯი
+                    <br>
+                    იწყება აქ.
+                </h2>
+
+                <p>
+                    თანამედროვე ფინანსური გამოცდილება
+                    ერთ ციფრულ სივრცეში.
+                </p>
+
+                <a href="{% url 'loans' %}" class="btn btn-white btn-lg">
+                    დაიწყე ახლა <span>↗</span>
+                </a>
+            </div>
+
+            <div class="cta-decoration">✦</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

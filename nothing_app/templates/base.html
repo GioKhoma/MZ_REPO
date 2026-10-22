@@ -1,0 +1,360 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ka" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}MiniBank{% endblock %} | Digital Banking</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Decorative background -->
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="scroll-line" id="scrollLine"></div>
+
+    <!-- Navigation -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-container">
+
+            <a href="{% url 'home' %}" class="brand">
+                <span class="brand-logo">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <path d="M8 26L17 13L23 22L32 10"
+                              stroke="white"
+                              stroke-width="4"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                        <circle cx="32" cy="10" r="4" fill="white"/>
+                    </svg>
+                </span>
+
+                <span class="brand-name">
+                    mini<span>bank.</span>
+                </span>
+            </a>
+
+            <nav class="nav-links" id="primaryNav">
+                <a href="{% url 'home' %}" class="nav-link">
+                    მთავარი
+                </a>
+
+                <a href="{% url 'loans' %}" class="nav-link">
+                    სესხები
+                </a>
+
+                <a href="{% url 'my_loans' %}" class="nav-link">
+                    ჩემი სესხები
+                </a>
+
+                <a href="{% url 'contact' %}" class="nav-link">
+                    კონტაქტი
+                </a>
+            </nav>
+
+            <div class="nav-actions">
+
+                <button
+                    class="theme-toggle"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="თემის შეცვლა"
+                    aria-pressed="false">
+
+                    <span class="theme-sun">☀</span>
+                    <span class="theme-moon">☾</span>
+                </button>
+
+                <a href="{% url 'loans' %}" class="btn btn-primary nav-cta">
+                    დაიწყე ახლა
+                    <span>↗</span>
+                </a>
+
+                <button
+                    class="menu-toggle"
+                    id="menuToggle"
+                    type="button"
+                    aria-label="მენიუს გახსნა"
+                    aria-expanded="false"
+                    aria-controls="primaryNav">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="main-content">
+        {% block content %}
+
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div class="footer-brand">
+                    <div class="brand-name">
+                        mini<span>bank.</span>
+                    </div>
+
+                    <p>
+                        საბანკო გამოცდილების ახალი ვიზუალური სტანდარტი.
+                        შექმნილი სასწავლო მიზნებისთვის.
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="{% url 'home' %}">მთავარი</a>
+                    <a href="{% url 'loans' %}">სესხები</a>
+                    <a href="{% url 'my_loans' %}">ჩემი სესხები</a>
+                    <a href="{% url 'contact' %}">კონტაქტი</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 MiniBank. სასწავლო პროექტი.</span>
+                <span>Made for the next generation ✦</span>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Shared Modal -->
+
+    <!-- Animated Loan Guide Modal -->
+    <dialog id="guideModal" class="guide-modal">
+
+        <div class="guide-container">
+
+            <button class="guide-close" id="guideClose" type="button">
+                ✕
+            </button>
+
+            <div class="guide-layout">
+
+                <!-- LEFT SIDE -->
+                <div class="guide-information">
+
+                    <div class="guide-label">
+                        <span class="pulse-dot"></span>
+                        MINIBANK GUIDE
+                    </div>
+
+                    <div class="guide-counter">
+                        <span id="guideCurrent">01</span>
+                        <span>/ 03</span>
+                    </div>
+
+                    <!-- STEP 1 -->
+                    <div class="guide-text is-active" data-guide-text="0">
+                        <h2>
+                            აირჩიე
+                            <span class="gradient-text">სესხი.</span>
+                        </h2>
+
+                        <p>
+                            გაეცანი ხელმისაწვდომ სესხის ტიპებს
+                            და აირჩიე შენი მიზნის შესაბამისი
+                            ფინანსური პროდუქტი.
+                        </p>
+                    </div>
+
+                    <!-- STEP 2 -->
+                    <div class="guide-text" data-guide-text="1">
+                        <h2>
+                            შეავსე
+                            <span class="gradient-text">განაცხადი.</span>
+                        </h2>
+
+                        <p>
+                            მიუთითე სასურველი თანხა, ვადა
+                            და პირადი ინფორმაცია მარტივ
+                            ონლაინ ფორმაში.
+                        </p>
+                    </div>
+
+                    <!-- STEP 3 -->
+                    <div class="guide-text" data-guide-text="2">
+                        <h2>
+                            მზად
+                            <span class="gradient-text">არის!</span>
+                        </h2>
+
+                        <p>
+                            რეალურ სისტემაში შემდეგი ეტაპი
+                            განაცხადის გაგზავნა და განხილვაა.
+                            ეს ანიმაცია მხოლოდ დემონსტრაციაა.
+                        </p>
+                    </div>
+
+                    <!-- PROGRESS -->
+                    <div class="guide-progress">
+                        <span id="guideProgress"></span>
+                    </div>
+
+                    <!-- CONTROLS -->
+                    <div class="guide-controls">
+
+                        <button type="button" id="guidePrev" class="guide-back">
+                            ← უკან
+                        </button>
+
+                        <button type="button" id="guideNext" class="btn btn-primary">
+                            შემდეგი →
+                        </button>
+
+                    </div>
+
+                    <div class="guide-dots">
+                        <button type="button" class="guide-dot active" data-guide-step="0" aria-label="ეტაპი 1"></button>
+                        <button type="button" class="guide-dot" data-guide-step="1" aria-label="ეტაპი 2"></button>
+                        <button type="button" class="guide-dot" data-guide-step="2" aria-label="ეტაპი 3"></button>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT SIDE: ANIMATIONS -->
+                <div class="guide-animation">
+
+                    <div class="guide-background-circle"></div>
+
+                    <!-- ANIMATION 1 -->
+                    <div class="guide-scene is-active" data-guide-scene="0">
+
+                        <div class="scene-label">STEP 01 / CHOOSE</div>
+
+                        <div class="animated-loan-list">
+
+                            <div class="animated-loan-card">
+                                <span class="animated-card-icon">◈</span>
+                                <div>
+                                    <strong>სამომხმარებლო</strong>
+                                    <small>პირადი მიზნებისთვის</small>
+                                </div>
+                                <span class="loan-check">✓</span>
+                            </div>
+
+                            <div class="animated-loan-card">
+                                <span class="animated-card-icon">⌂</span>
+                                <div>
+                                    <strong>იპოთეკური</strong>
+                                    <small>ახალი სახლისთვის</small>
+                                </div>
+                            </div>
+
+                            <div class="animated-loan-card">
+                                <span class="animated-card-icon">↗</span>
+                                <div>
+                                    <strong>ავტოსესხი</strong>
+                                    <small>ახალი ავტომობილისთვის</small>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ANIMATION 2 -->
+                    <div class="guide-scene" data-guide-scene="1">
+
+                        <div class="scene-label">STEP 02 / APPLICATION</div>
+
+                        <div class="animated-form">
+
+                            <div class="animated-form-header">
+                                <span>✦</span>
+                                სესხის განაცხადი
+                            </div>
+
+                            <div class="animated-form-label">სახელი და გვარი</div>
+
+                            <div class="animated-input">
+                                <span class="animated-typing">გიორგი გიორგაძე</span>
+                            </div>
+
+                            <div class="animated-form-label">სესხის თანხა</div>
+
+                            <div class="animated-input">
+                                <span class="animated-amount">12 000 ₾</span>
+                            </div>
+
+                            <div class="animated-form-label">შევსების პროგრესი</div>
+
+                            <div class="animated-loading">
+                                <span></span>
+                            </div>
+
+                            <div class="animated-submit">
+                                გაგრძელება ↗
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ANIMATION 3 -->
+                    <div class="guide-scene" data-guide-scene="2">
+
+                        <div class="scene-label">STEP 03 / COMPLETED</div>
+
+                        <div class="animated-success">
+
+                            <div class="success-ring">
+
+                                <div class="success-circle">
+                                    <svg viewBox="0 0 100 100">
+                                        <path d="M25 52 L43 68 L76 32"
+                                            fill="none"
+                                            stroke="white"
+                                            stroke-width="9"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+
+                            </div>
+
+                            <h3>ყველაფერი მზადაა!</h3>
+
+                            <p>შემდეგი ნაბიჯი — განაცხადის გაგზავნა</p>
+
+                            <div class="success-confetti c1"></div>
+                            <div class="success-confetti c2"></div>
+                            <div class="success-confetti c3"></div>
+                            <div class="success-confetti c4"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </dialog>
+
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

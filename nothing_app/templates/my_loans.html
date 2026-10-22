@@ -1,0 +1,265 @@
+
+{% extends 'base.html' %}
+
+{% block title %}ჩემი სესხები{% endblock %}
+
+{% block content %}
+
+<section class="inner-page-section">
+
+    <div class="container">
+
+        <div class="dashboard-heading reveal">
+
+            <div>
+                <div class="eyebrow">
+                    <span class="pulse-dot"></span>
+                    PERSONAL OVERVIEW
+                </div>
+
+                <h1>
+                    ჩემი <span class="gradient-text">სესხები.</span>
+                </h1>
+
+                <p>
+                    შენი ფინანსური პროდუქტების ერთიანი მიმოხილვა.
+                    ქვემოთ მოცემულია სადემონსტრაციო მონაცემები.
+                </p>
+            </div>
+
+            <a href="{% url 'loans' %}" class="btn btn-primary">
+                + ახალი განაცხადი
+            </a>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+        <div class="stats-grid">
+
+            <div class="stat-card reveal spotlight-card">
+
+                <div class="stat-top">
+                    <span>სულ სესხები</span>
+                    <span class="stat-icon purple-bg">◈</span>
+                </div>
+
+                <h2>03</h2>
+
+                <div class="stat-bottom">
+                    <span class="stat-tag">დემო</span>
+                    <span>სესხის რაოდენობა</span>
+                </div>
+
+            </div>
+
+            <div class="stat-card reveal spotlight-card">
+
+                <div class="stat-top">
+                    <span>ჯამური თანხა</span>
+                    <span class="stat-icon blue-bg">₾</span>
+                </div>
+
+                <h2>22,000 <small>₾</small></h2>
+
+                <div class="stat-bottom">
+                    <span class="stat-tag">დემო</span>
+                    <span>სესხების ჯამი</span>
+                </div>
+
+            </div>
+
+            <div class="stat-card reveal spotlight-card">
+
+                <div class="stat-top">
+                    <span>აქტიური სესხები</span>
+                    <span class="stat-icon green-bg">✓</span>
+                </div>
+
+                <h2>01</h2>
+
+                <div class="stat-bottom">
+                    <span class="stat-tag">დემო</span>
+                    <span>მიმდინარე სტატუსი</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOAN TABLE -->
+        <div class="surface-card loans-table-card reveal">
+
+            <div class="table-heading">
+
+                <div>
+                    <span class="small-overline">LOAN HISTORY</span>
+                    <h2>სესხების ისტორია</h2>
+                    <p>ყველა განაცხადი ერთ სივრცეში</p>
+                </div>
+
+                <div class="filter-buttons">
+                    <button type="button" class="filter-chip is-selected" data-demo-tab>
+                        ყველა
+                    </button>
+
+                    <button type="button" class="filter-chip" data-demo-tab>
+                        აქტიური
+                    </button>
+
+                    <button type="button" class="filter-chip" data-demo-tab>
+                        დასრულებული
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="table-scroll">
+
+                <table class="premium-table">
+
+                    <thead>
+                        <tr>
+                            <th>სესხი</th>
+                            <th>თანხა</th>
+                            <th>ვადა</th>
+                            <th>სტატუსი</th>
+                            <th>დეტალები</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <div class="table-product">
+                                    <span class="table-icon purple-bg">◈</span>
+                                    <span>
+                                        <strong>სამომხმარებლო</strong>
+                                        <small>#LN-2026-001</small>
+                                    </span>
+                                </div>
+                            </td>
+
+                            <td class="amount-cell">5,000 ₾</td>
+                            <td>12 თვე</td>
+
+                            <td>
+                                <span class="status-badge status-active">
+                                    <i></i> აქტიური
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    type="button"
+                                    class="table-action"
+                                    data-open-modal
+                                    data-modal-title="სესხის დეტალები"
+                                    data-modal-message="ეს არის სესხის დეტალების მოდალური ფანჯრის დემო დიზაინი.">
+                                    ↗
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="table-product">
+                                    <span class="table-icon blue-bg">⌂</span>
+                                    <span>
+                                        <strong>იპოთეკური</strong>
+                                        <small>#LN-2026-002</small>
+                                    </span>
+                                </div>
+                            </td>
+
+                            <td class="amount-cell">15,000 ₾</td>
+                            <td>36 თვე</td>
+
+                            <td>
+                                <span class="status-badge status-pending">
+                                    <i></i> განხილვაში
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    type="button"
+                                    class="table-action"
+                                    data-open-modal
+                                    data-modal-title="განაცხადის სტატუსი"
+                                    data-modal-message="ეს არის სტატუსის ვიზუალური დემონსტრაცია.">
+                                    ↗
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="table-product">
+                                    <span class="table-icon orange-bg">↗</span>
+                                    <span>
+                                        <strong>ავტოსესხი</strong>
+                                        <small>#LN-2026-003</small>
+                                    </span>
+                                </div>
+                            </td>
+
+                            <td class="amount-cell">2,000 ₾</td>
+                            <td>6 თვე</td>
+
+                            <td>
+                                <span class="status-badge status-closed">
+                                    <i></i> დასრულებული
+                                </span>
+                            </td>
+
+                            <td>
+                                <button
+                                    type="button"
+                                    class="table-action"
+                                    data-open-modal
+                                    data-modal-title="სესხის ისტორია"
+                                    data-modal-message="აქ მომავალში Django-დან მიღებული ინფორმაცია გამოჩნდება.">
+                                    ↗
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="table-footer">
+                <span>ნაჩვენებია 3 სადემონსტრაციო ჩანაწერი</span>
+                <span>MiniBank Dashboard ✦</span>
+            </div>
+
+        </div>
+
+
+        <!-- EXTRA BANNER -->
+        <div class="dashboard-banner reveal">
+
+            <div>
+                <span class="small-overline">EXPLORE MORE</span>
+
+                <h3>მზად ხარ ახალი შესაძლებლობებისთვის?</h3>
+
+                <p>აღმოაჩინე MiniBank-ის საბანკო პროდუქტები.</p>
+            </div>
+
+            <a href="{% url 'loans' %}" class="btn btn-white">
+                სესხების ნახვა ↗
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
