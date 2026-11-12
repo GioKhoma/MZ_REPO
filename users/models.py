@@ -42,3 +42,15 @@ class Passport(models.Model):
 
     def __str__(self):
         return f"{self.private_number}"
+
+
+class Person(models.Model):
+    name = models.CharField()
+    last_name = models.CharField()
+    address = models.CharField()
+    email = models.EmailField()
+    phone = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.name} {self.last_name}"
+
