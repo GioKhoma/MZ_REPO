@@ -54,3 +54,14 @@ class Person(models.Model):
     def __str__(self):
         return f"{self.name} {self.last_name}"
 
+
+
+class Car(models.Model):
+    brand = models.CharField()
+    model = models.CharField()
+    release_year = models.IntegerField()
+    price = models.FloatField()
+    image = models.ImageField(upload_to="car_photos/", null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.brand} {self.model}"

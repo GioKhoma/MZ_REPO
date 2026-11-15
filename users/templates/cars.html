@@ -1,0 +1,326 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoLux | Premium Cars</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/cars.css' %}">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-inner">
+        <a href="#" class="logo">AUTO<span>LUX</span></a>
+
+        <nav class="nav-links">
+            <a href="#" class="active">მთავარი</a>
+            <a href="#inventory">ავტომობილები</a>
+            <a href="#footer">კონტაქტი</a>
+        </nav>
+
+        <a href="#inventory" class="nav-button">კატალოგის ნახვა →</a>
+    </div>
+</header>
+
+<main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-label">
+                <span class="dot"></span>
+                PREMIUM AUTO COLLECTION
+            </div>
+
+            <h1>
+                იპოვე შენი <br>
+                <span>იდეალური ავტომობილი.</span>
+            </h1>
+
+            <p>
+                აღმოაჩინე გამორჩეული ავტომობილების კოლექცია.
+                თანამედროვე დიზაინი, კომფორტი და შესაძლებლობები
+                ერთ სივრცეში.
+            </p>
+
+            <a href="#inventory" class="hero-button">
+                დაათვალიერე ავტომობილები
+                <span>↗</span>
+            </a>
+
+            <div class="hero-stats">
+                <div>
+                    <strong>{{ cars|length }}+</strong>
+                    <span>ავტომობილი</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div>
+                    <strong>Premium</strong>
+                    <span>კოლექცია</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div>
+                    <strong>100%</strong>
+                    <span>კომფორტი</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-glow"></div>
+    </section>
+
+    <!-- CARS SECTION -->
+    <section class="inventory container" id="inventory">
+
+        <div class="section-header">
+            <div>
+                <div class="section-label">OUR COLLECTION</div>
+                <h2>ავტომობილების <span>კატალოგი</span></h2>
+                <p>შეარჩიე ავტომობილი, რომელიც შენს სტილს შეეფერება.</p>
+            </div>
+
+            <div class="car-counter">
+                <span id="resultCount">{{ cars|length }}</span>
+                ავტომობილი
+            </div>
+        </div>
+
+        <!-- SEARCH AND FILTER -->
+        <div class="filter-bar">
+
+            <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+
+                <input
+                    type="text"
+                    id="carSearch"
+                    placeholder="მოძებნე ბრენდი ან მოდელი..."
+                >
+            </div>
+
+            <select id="carSort">
+                <option value="default">სტანდარტული</option>
+                <option value="price-low">ფასი: ზრდადობით</option>
+                <option value="price-high">ფასი: კლებადობით</option>
+                <option value="year-new">წელი: უახლესი</option>
+                <option value="year-old">წელი: უძველესი</option>
+            </select>
+        </div>
+
+        <!-- CAR GRID -->
+        <div class="cars-grid" id="carsGrid">
+
+            {% for car in cars %}
+
+
+            <a href="{% url 'detail_car' car.id %}"
+            class="car-card"
+            data-name="{{ car.brand }} {{ car.model }}"
+            data-price="{{ car.price }}"
+            data-year="{{ car.release_year }}">
+
+            <article
+                class="car-card"
+                data-name="{{ car.brand }} {{ car.model }}"
+                data-price="{{ car.price }}"
+                data-year="{{ car.release_year }}"
+            >
+
+                <div class="car-image">
+
+                    <!-- Default illustration -->
+                    <div class="image-placeholder">
+                        <svg viewBox="0 0 320 180"
+                             fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="160" cy="142" rx="128" ry="11"
+                                     fill="#101827"/>
+
+                            <path d="M36 111 L52 92 L91 83 L113 50
+                                     Q121 41 140 41 H212
+                                     Q228 41 239 57 L263 86
+                                     L283 97 Q294 101 296 113
+                                     V126 H25 V117 Q25 110 36 111Z"
+                                  fill="#52657f"/>
+
+                            <path d="M119 51 H209 Q221 51 228 63
+                                     L247 86 H99Z"
+                                  fill="#172a43"/>
+
+                            <path d="M153 52 V85"
+                                  stroke="#7891ad"
+                                  stroke-width="3"/>
+
+                            <path d="M32 113 H289"
+                                  stroke="#8fa1b5"
+                                  stroke-width="3"/>
+
+                            <circle cx="83" cy="127" r="22" fill="#0c1423"/>
+                            <circle cx="83" cy="127" r="12" fill="#8496af"/>
+                            <circle cx="83" cy="127" r="5" fill="#25344a"/>
+
+                            <circle cx="241" cy="127" r="22" fill="#0c1423"/>
+                            <circle cx="241" cy="127" r="12" fill="#8496af"/>
+                            <circle cx="241" cy="127" r="5" fill="#25344a"/>
+
+                            <rect x="274" y="101" width="17" height="8"
+                                  rx="3" fill="#f59e0b"/>
+                            <rect x="29" y="101" width="14" height="8"
+                                  rx="3" fill="#ef4444"/>
+                        </svg>
+
+                        <span>IMAGE COMING SOON</span>
+                    </div>
+
+                    {% if car.image %}
+                        <img
+                            src="{{ car.image.url }}"
+                            alt="{{ car.brand }} {{ car.model }}"
+                            loading="lazy"
+                            onerror="this.remove()"
+                        >
+                    {% endif %}
+
+                    <div class="year-badge">
+                        {{ car.release_year }}
+                    </div>
+
+                    <div class="image-gradient"></div>
+                </div>
+
+                <div class="car-content">
+
+                    <div class="car-brand">
+                        {{ car.brand }}
+                    </div>
+
+                    <h3>{{ car.brand }} {{ car.model }}</h3>
+
+                    <div class="car-details">
+                        <div class="detail">
+                            <span class="detail-icon">◷</span>
+                            {{ car.release_year }}
+                        </div>
+
+                        <div class="detail">
+                            <span class="detail-icon">✦</span>
+                            Premium
+                        </div>
+                    </div>
+
+                    <div class="car-bottom">
+                        <div class="price-box">
+                            <span>ფასი</span>
+                            <strong>{{ car.price|floatformat:0 }} ₾</strong>
+                        </div>
+
+                        <button type="button" class="details-btn"
+                                aria-label="ავტომობილის დეტალები"
+                                title="დეტალები">
+                            ↗
+                        </button>
+                    </div>
+
+                </div>
+
+            </article>
+            </a>
+
+            {% empty %}
+
+            <div class="empty-state">
+                <div class="empty-icon">🚘</div>
+                <h3>ავტომობილები ჯერ არ არის</h3>
+                <p>კატალოგში ავტომობილები მალე დაემატება.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="empty-state" id="noResults" style="display: none;">
+            <div class="empty-icon">⌕</div>
+            <h3>ავტომობილები ვერ მოიძებნა</h3>
+            <p>სცადე სხვა ბრენდის ან მოდელის მოძებნა.</p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer id="footer">
+    <div class="container footer-content">
+        <a href="#" class="logo">AUTO<span>LUX</span></a>
+        <p>Premium automotive experience.</p>
+        <span>© 2026 AutoLux. All rights reserved.</span>
+    </div>
+</footer>
+
+<script>
+    const searchInput = document.getElementById("carSearch");
+    const sortSelect = document.getElementById("carSort");
+    const grid = document.getElementById("carsGrid");
+    const resultCount = document.getElementById("resultCount");
+    const noResults = document.getElementById("noResults");
+
+    const cards = Array.from(
+        document.querySelectorAll(".car-card")
+    );
+
+    function updateCars() {
+        const search = searchInput.value.toLowerCase().trim();
+        const sort = sortSelect.value;
+
+        let visibleCards = cards.filter(card => {
+            const name = card.dataset.name.toLowerCase();
+            return name.includes(search);
+        });
+
+        visibleCards.sort((a, b) => {
+            const priceA = Number(a.dataset.price);
+            const priceB = Number(b.dataset.price);
+            const yearA = Number(a.dataset.year);
+            const yearB = Number(b.dataset.year);
+
+            if (sort === "price-low") return priceA - priceB;
+            if (sort === "price-high") return priceB - priceA;
+            if (sort === "year-new") return yearB - yearA;
+            if (sort === "year-old") return yearA - yearB;
+
+            return cards.indexOf(a) - cards.indexOf(b);
+        });
+
+        cards.forEach(card => {
+            card.style.display = "none";
+        });
+
+        visibleCards.forEach(card => {
+            card.style.display = "";
+            grid.appendChild(card);
+        });
+
+        resultCount.textContent = visibleCards.length;
+        noResults.style.display =
+            cards.length > 0 && visibleCards.length === 0
+                ? "block"
+                : "none";
+    }
+
+    searchInput.addEventListener("input", updateCars);
+    sortSelect.addEventListener("change", updateCars);
+</script>
+
+</body>
+</html>
