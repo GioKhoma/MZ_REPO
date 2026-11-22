@@ -44,3 +44,22 @@ def contact(request):
     context = {}
 
     return render(request, "contact.html", context)
+
+
+from .models import Book
+from django.db.models import Q, F
+
+
+
+def books_page(request):
+
+    # books = Book.objects.filter((Q(price__lt=20) | Q(genre="სამეცნიერო")) & ~Q(author="სტივენ კინგი"))
+
+    books = Book.objects.filter(price__gte=F('pages'))
+
+
+    context = {
+        "books": books
+    }
+
+    return render(request, "books_page.html", context)
