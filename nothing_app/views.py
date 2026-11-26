@@ -55,11 +55,14 @@ def books_page(request):
 
     # books = Book.objects.filter((Q(price__lt=20) | Q(genre="სამეცნიერო")) & ~Q(author="სტივენ კინგი"))
 
-    books = Book.objects.filter(price__gte=F('pages'))
+    # books = Book.objects.filter(price__gte=F('pages'))
+    
 
+    books = Book.objects.values_list("author", flat=True)
+    print(books)
 
     context = {
-        "books": books
+        "books": books,
     }
 
     return render(request, "books_page.html", context)

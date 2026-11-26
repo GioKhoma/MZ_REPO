@@ -1,6 +1,20 @@
 {% if books %}
     {% for book in books %}
-        <h1>wignis saxelia: {{ book.title }} avtori: {{ book.author }} genre:{{ book.genre }} pages:{{ book.pages }} price: {{ book.price }}</h1>
+        <h1>
+            {% if book.title %}
+                wignis saxelia: {{ book.title }} 
+            {% endif %}
+            
+            avtori: {{ book.author }} 
+
+            {% if book.genre and book.pages %}
+                genre:{{ book.genre }} 
+                pages:{{ book.pages }} 
+            {% endif %}
+           
+            price: {{ book.price }}
+         
+        </h1>
     {% endfor %}
 {% else %}
     <h1>books not found</h1>

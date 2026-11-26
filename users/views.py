@@ -3,8 +3,10 @@ from .models import Car, Passport, Post
 
 
 def cars_page(request):
-    cars = Car.objects.all()
-    # post = Post.objects.filter(profile__age__lt=50)
+    cars = Car.objects.order_by("-release_year", "-price")
+
+    print(cars.query)
+
 
 
     context = {
